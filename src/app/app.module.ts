@@ -15,6 +15,7 @@ import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-p
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 import { FormsModule } from '@angular/forms';
+import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     ProofPageComponent,
     InternalLeaderboardPageComponent,
     ExternalLeaderboardPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    FeedPageComponent
   ],
   imports: [
     BrowserModule,

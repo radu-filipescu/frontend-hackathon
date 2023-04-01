@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 import { InternalLeaderboardPageComponent } from './pages/internal-leaderboard-page/internal-leaderboard-page.component';
 import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-page/external-leaderboard-page.component';
+import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'external', component: ExternalLeaderboardPageComponent },
   { path: 'quiz', component: QuizPageComponent },
   { path: 'proof/:action', component: ProofPageComponent },
-  { path: 'profile', component: ProfilePageComponent }
+  { path: 'profile', component: ProfilePageComponent },
+  { path: 'feed', component: FeedPageComponent }
 ];
 
 @NgModule({
