@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faBrain, faSeedling, faBicycle,  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main-page',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  faBrain = faBrain;
 
   showDescriptions: boolean[] = [false, false, false, false, false];
 
