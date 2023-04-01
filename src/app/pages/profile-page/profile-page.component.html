@@ -21,4 +21,7 @@
 
 <div class="badge-card">
 
+  <div *ngFor="let ach of mockAchivements; let i = index">
+    <img class="achievements-icon" src="{{mockAchivements[i].url}}">
+  </div>
 </div>
