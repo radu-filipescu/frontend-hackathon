@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HistoryDTO } from '../DTOs/historyDTO';
+import { HttpClient } from '@angular/common/http';
+import { CONFIG } from '../shared/CONFIG'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
 
-  constructor() { }
+  config: CONFIG = new CONFIG();
+
+  constructor(private http: HttpClient) { }
+
   async getMockData(){
     let historyPosts = [];
     let historyPost1 = new HistoryDTO();
@@ -38,5 +44,9 @@ export class HistoryService {
     historyPosts.push(historyPost3);
     historyPosts.push(historyPost4);
     return historyPosts
+  }
+
+  getFeed() {
+    return this.http.get(this.config.backendDevAPI + 'History') as  Observable<HistoryDTO[]>;
   }
 }
