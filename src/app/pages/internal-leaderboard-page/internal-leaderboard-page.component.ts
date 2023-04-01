@@ -30,6 +30,13 @@ export class InternalLeaderboardPageComponent implements OnInit {
               this.currentUser = (result as UserDTO);
 
               // TODO: make call to get filtered users
+              this.companyService.getUsers()
+                .subscribe(res => {
+                  for(let post of res){
+                    this.employees.push(post);
+                  }
+                  this.employees.sort((a, b) => b.score - a.score);
+                })
             });
 
         }
@@ -38,15 +45,6 @@ export class InternalLeaderboardPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMyInformation();
-
-    /*this.companyService.getUsers()
-    .subscribe(res => {
-        for(let post of res){
-          this.employees.push(post);
-        }
-        this.employees.sort((a, b) => b.score - a.score);
-      }
-    )*/
   }
 
 }

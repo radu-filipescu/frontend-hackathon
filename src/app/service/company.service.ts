@@ -66,4 +66,8 @@ export class CompanyService {
   getUsers(){
     return this.http.get(this.config.backendDevAPI + 'Users') as  Observable<UserDTO[]>;
   }
+
+  getUsersByCompany(id: any){
+    return this.http.get(this.config.backendDevAPI + 'Users/GetUsersByCompanyId/' + id) as  Observable<UserDTO[]>;
+  }
 }
