@@ -14,12 +14,12 @@ import { Action } from 'src/app/shared/Action';
 export class FeedPageComponent implements OnInit {
   CONFIG: CONFIG = new CONFIG();
   posts: HistoryDTO[] = [];
-  usersMap: Map<string, string> = new Map<string, string>();
+  usersMap: Map<number, string> = new Map<number, string>();
   actionTranslator: Action = new Action();
 
   constructor(private historyService : HistoryService, private httpClient: HttpClient) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.refreshFeed();
   }
 

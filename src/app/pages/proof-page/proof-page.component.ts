@@ -111,7 +111,7 @@ export class ProofPageComponent implements OnInit {
     let locale = 'en-US';
     let formattedDate = formatDate(myDate, format, locale);
     currentAction.date = formattedDate;
-    currentAction.userId = parseInt(this.currentUser.id);
+    currentAction.userId = this.currentUser.id;
     currentAction.actionId = this.utils.getNumberByName(this.action);
 
     this.httpClient.post<HistoryDTO>(this.CONFIG.backendDevAPI + 'History', currentAction)
