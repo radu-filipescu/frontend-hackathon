@@ -16,6 +16,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AddUserPageComponent } from './pages/add-user-page/add-user-page.component';
 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 @NgModule({
@@ -37,7 +38,8 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

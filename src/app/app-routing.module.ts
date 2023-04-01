@@ -11,7 +11,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AddUserPageComponent } from './pages/add-user-page/add-user-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },
+  { path: '', component: LoginPageComponent },
+  { path: 'home', component: MainPageComponent },
   { path: 'internal', component: InternalLeaderboardPageComponent },
   { path: 'external', component: ExternalLeaderboardPageComponent },
   { path: 'quiz', component: QuizPageComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'adduser', component: AddUserPageComponent },
-  { path: 'feed', component: FeedPageComponent }
+  { path: 'feed', component: FeedPageComponent },
 ];
 
 @NgModule({
