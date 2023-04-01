@@ -18,12 +18,4 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  navigateLandingPage() {
-    this.router.navigate(['']);
-  }
-
-  navigateProfilePage() {
-    this.router.navigate(['profile']);
-  }
 }
