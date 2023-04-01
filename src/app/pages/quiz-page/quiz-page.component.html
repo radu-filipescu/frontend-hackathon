@@ -1,0 +1,22 @@
+<div *ngIf="!lastQuestion" class="quiz-container">
+    <div  class="question">{{ currentQuestion.question }}</div>
+    <div class="choices">
+      <div class="choice" *ngFor="let choice of currentQuestion.choices" 
+           [ngClass]="{'selected': choice === selectedChoice, 'correct': choice === currentQuestion.answer, 'incorrect': choice === selectedChoice && choice !== currentQuestion.answer}"
+           (click)="selectChoice(choice)">
+        {{ choice }}
+      </div>
+    </div>
+    <button class="submit-button" (click)="nextQuestion()">Next</button>
+    <div class="score" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
+  </div>
+
+
+    <div *ngIf="lastQuestion" class="quiz-container">
+        <div class="score" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
+        <button *ngIf="lastQuestion" class="submit-button" (click)="submitQuiz()">Submit</button>
+    </div>
+
+    
+  
+  
