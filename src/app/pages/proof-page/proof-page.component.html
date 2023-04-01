@@ -2,8 +2,10 @@
 
 <video (loadeddata)="startPredicting()" style="height: 1px; width: 1px" id="videoid"></video>
 
-<canvas id="canvasid"></canvas>
+<canvas id="canvasid" width="50" height="50"></canvas>
 
 <button class="send-button" (click)="send()">Send</button>
 
 <button class="refresh-button" (click)="refreshProofPage()">Refresh</button>
+
+<img *ngIf="webcamIsLoading" class="loading-spinner" src="../../../assets/images/loading-spinner.gif">
