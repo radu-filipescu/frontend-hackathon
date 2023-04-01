@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/app/DTOs/UserDTO';
 import { CompanyService } from 'src/app/service/company.service';
+import { CONFIG } from 'src/app/shared/CONFIG';
 
 @Component({
   selector: 'app-internal-leaderboard-page',
@@ -8,17 +10,41 @@ import { CompanyService } from 'src/app/service/company.service';
   styleUrls: ['./internal-leaderboard-page.component.scss']
 })
 export class InternalLeaderboardPageComponent implements OnInit {
-
+  CONFIG: CONFIG = new CONFIG();
   employees: UserDTO[] = [];
 
-  constructor(private companyService: CompanyService) { }
+  currentUser: UserDTO = new UserDTO();
+
+  constructor(private httpClient: HttpClient, private companyService: CompanyService) { }
+
+  getMyInformation() {
+    this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
+      .subscribe(result => {
+        let loginResult = String((result as any).value);
+
+        if(loginResult != "not logged in") {
+          let userId: string = loginResult.split(' ')[2];
+
+          this.httpClient.get(this.CONFIG.backendDevAPI + 'Users/' + userId)
+            .subscribe(result => {
+              this.currentUser = (result as UserDTO);
+
+              // TODO: make call to get filtered users
+              this.companyService.getUsers()
+                .subscribe(res => {
+                  for(let post of res){
+                    this.employees.push(post);
+                  }
+                  this.employees.sort((a, b) => b.score - a.score);
+                })
+            });
+
+        }
+      });
+  }
 
   ngOnInit(): void {
-    this.companyService.getMockEmployees().then((result) => {
-      this.employees = result;
-
-      this.employees.sort((a, b) => b.score - a.score);
-    })
+    this.getMyInformation();
   }
 
 }

@@ -1,13 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CompanyDTO } from 'src/app/DTOs/CompanyDTO';
 import { UserDTO } from 'src/app/DTOs/UserDTO';
+import { CONFIG } from '../shared/CONFIG'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
 
-  constructor() { }
+  config: CONFIG = new CONFIG();
+
+  constructor(private http: HttpClient) { }
 
   async getMockCompanies() {
     let companies = [];
@@ -52,5 +57,17 @@ export class CompanyService {
     employees.push(emp4);
 
     return employees;
+  }
+
+  getCompanies(){
+    return this.http.get(this.config.backendDevAPI + 'Company') as  Observable<CompanyDTO[]>;
+  }
+
+  getUsers(){
+    return this.http.get(this.config.backendDevAPI + 'Users') as  Observable<UserDTO[]>;
+  }
+
+  getUsersByCompany(id: any){
+    return this.http.get(this.config.backendDevAPI + 'Users/GetUsersByCompanyId/' + id) as  Observable<UserDTO[]>;
   }
 }

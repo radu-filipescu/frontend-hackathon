@@ -1,8 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 import * as handTrack from 'handtrackjs';
+import { HistoryDTO } from 'src/app/DTOs/historyDTO';
+import { ImageDTO } from 'src/app/DTOs/ImageDTO';
+import { UserDTO } from 'src/app/DTOs/UserDTO';
+import { CONFIG } from 'src/app/shared/CONFIG';
 
 @Component({
   selector: 'app-proof-page',
@@ -10,6 +15,7 @@ import * as handTrack from 'handtrackjs';
   styleUrls: ['./proof-page.component.scss']
 })
 export class ProofPageComponent implements OnInit {
+  CONFIG = new CONFIG();
 
   faSpinner = faSpinner;
 
@@ -26,7 +32,11 @@ export class ProofPageComponent implements OnInit {
 
   action: string = "";
 
-  constructor(private route: ActivatedRoute,) { }
+  screenShot: string = "";
+
+  currentUser: UserDTO = new UserDTO();
+
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   defaultParams = {
     flipHorizontal: false,
@@ -66,6 +76,30 @@ export class ProofPageComponent implements OnInit {
           if(predictions != undefined)
             if(this.checkPrediction(predictions)) {
               this.video.pause();
+              this.screenShot = this.canvas.toDataURL();
+
+              // send action to backend
+              let currentAction: HistoryDTO = new HistoryDTO();
+              currentAction.date = new Date().toDateString();
+              currentAction.userId = this.currentUser.id;
+              currentAction.actionId = this.action;
+
+              this.httpClient.post(this.CONFIG.backendDevAPI + 'History', currentAction)
+                .subscribe(response => {
+                  let imagePath = String((response as any).value);
+
+                  let image = new ImageDTO();
+                  image.imageAsBase64 = this.screenShot;
+                  image.name = imagePath;
+
+                  this.httpClient.post(this.CONFIG.backendDevAPI + 'Image', image)
+                    .subscribe(result => {
+                      console.log(result);
+                    })
+                })
+
+
+
               clearInterval(checker);
             }
 
@@ -77,7 +111,26 @@ export class ProofPageComponent implements OnInit {
 
   }
 
+  getMyInformation() {
+    this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
+      .subscribe(result => {
+        let loginResult = String((result as any).value);
+
+        if(loginResult != "not logged in") {
+          let userId: string = loginResult.split(' ')[2];
+
+          this.httpClient.get(this.CONFIG.backendDevAPI + 'Users/' + userId)
+            .subscribe(result => {
+              this.currentUser = (result as UserDTO);
+            });
+
+        }
+      });
+  }
+
   async ngOnInit() {
+    this.getMyInformation();
+
     let param = this.route.snapshot.paramMap.get('action');
     if(param){
       this.action = param;
@@ -87,7 +140,7 @@ export class ProofPageComponent implements OnInit {
 
     this.model = await handTrack.load(this.defaultParams);
     this.video = document.getElementById('videoid');
-    this.canvas = document.getElementById('canvasid');
+    this.canvas = (document.getElementById('canvasid') as HTMLCanvasElement);
     this.context = this.canvas.getContext("2d");
 
     // get phone size

@@ -14,11 +14,14 @@ export class ExternalLeaderboardPageComponent implements OnInit {
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
-    this.companyService.getMockCompanies().then((result) => {
-      this.companies = result;
-
-      this.companies.sort((a, b) => b.score - a.score);
-    })
+    this.companyService.getCompanies()
+    .subscribe(res => {
+        for(let post of res){
+          this.companies.push(post);
+        }
+        this.companies.sort((a, b) => b.score - a.score);
+      }
+    )
   }
 
 }

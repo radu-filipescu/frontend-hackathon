@@ -35,8 +35,7 @@ export class LoginPageComponent implements OnInit {
     // Handle form submission
     this.httpClient.post(this.CONFIG.backendDevAPI + 'Login', this.loginInfo)
       .subscribe(result => {
-
-        if((result as any).value == 'normal user')
+        if(String((result as any).value).startsWith('normal user'))
           this.router.navigate(['home']);
 
           if((result as any).value == 'not logged in')

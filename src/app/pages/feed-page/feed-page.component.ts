@@ -12,10 +12,17 @@ export class FeedPageComponent implements OnInit {
   constructor(private historyService : HistoryService) { }
 
   ngOnInit(): void {
-    this.historyService.getMockData().then((result) => {
-      this.posts = result;
-      this.posts.sort((a, b) => a.date.localeCompare(b.date));
-    })
+    this.refreshFeed();
+  }
+
+  private refreshFeed(){
+    this.historyService.getFeed()
+    .subscribe(res => {
+        for(let post of res){
+          this.posts.push(post);
+        }
+      }
+    )
   }
 
 }

@@ -19,6 +19,10 @@ import { AddUserPageComponent } from './pages/add-user-page/add-user-page.compon
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,9 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
