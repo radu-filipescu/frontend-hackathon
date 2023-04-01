@@ -3,12 +3,10 @@
 
     <div class="action-button" (click)="showDescriptionPanel(0)">Green commuting</div>
     <div class="action-description" *ngIf="showDescriptions[0]">
-        You can earn 40 points by:
-        <ul>
-            <li>Using public transport to get to work</li>
-            <li>Using a bike / electric scooter to get to work</li>
-        </ul>
-        <a>Show us proof!</a>
+        You can earn 40 points by using public transport to get to work
+        <a (click)="goToProof('ride-bus')">Show us proof!</a>
+        You can earn 60 points by using a bike / electric scooter to get to work
+        <a (click)="goToProof('ride-bike')">Show us proof!</a>
     </div>
 
     <div class="action-button" (click)="showDescriptionPanel(1)">Plastic free workplace</div>

@@ -28,6 +28,6 @@ export class MainPageComponent implements OnInit {
   }
 
   goToProof(actionName: string) {
-    this.router.navigate(['proof','actionName']);
+    this.router.navigate(['proof', actionName]);
   }
 }
