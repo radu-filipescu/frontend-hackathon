@@ -7,18 +7,23 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 
+
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    MainPageComponent
+    MainPageComponent,
+    QuizPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
