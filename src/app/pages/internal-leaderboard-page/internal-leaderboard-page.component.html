@@ -1,12 +1,14 @@
 <div class="wrapper">
-    <h2>Your company stats</h2>
+
     <table>
         <thead>
-            <th>Employee</th>
-            <th>Score</th>
+            
+            <th colspan="3">Your company stats</th>
+            
         </thead>
         <tbody>
-            <tr *ngFor="let emp of employees">
+            <tr *ngFor="let emp of employees; let i = index">
+                <td>{{ i + 1 }}</td>
                 <td>{{ emp.name }}</td>
                 <td>{{ emp.score }}</td>
             </tr>

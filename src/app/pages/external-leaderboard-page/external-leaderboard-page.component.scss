@@ -1,27 +1,53 @@
 .wrapper {
+    h2{
+        text-align: center;
+    }
     margin: 5vw;
 }
 
+
 table {
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    overflow: hidden;
     width: 100%;
-    border: 2px solid var(--blue);
+    border: 0px;
     border-collapse: collapse;
 
     td, th {
-        border: 1px solid var(--blue);;
-        text-align: left;
+        height: 45px;
+        //border: 1px solid var(--blue);
+        text-align: center;
         padding: 8px;
+        
     }
 
     thead {
+        
         background-color: #9aa89c;
     }
 
-    tr:nth-child(even){
-        background-color: #9aa89c;
+    
+
+    tr{
+        
+        background-color: white;
     }
 
-    tr:nth-child(odd){
-        background-color: var(--blue);
-    }
+    tbody {
+        tr {
+          td:nth-child(3) {
+            
+            color: var(--green);
+          }
+        }
+      }
+
+      
 }
+
+
+
+
+
