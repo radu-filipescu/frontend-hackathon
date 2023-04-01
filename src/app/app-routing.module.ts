@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
-  { path: 'proof', component: ProofPageComponent}
+  { path: 'proof', component: ProofPageComponent },
+  { path: 'profile', component: ProfilePageComponent }
 ];
 
 @NgModule({
