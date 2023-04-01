@@ -7,6 +7,8 @@ import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 import { InternalLeaderboardPageComponent } from './pages/internal-leaderboard-page/internal-leaderboard-page.component';
 import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-page/external-leaderboard-page.component';
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AddUserPageComponent } from './pages/add-user-page/add-user-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'quiz', component: QuizPageComponent },
   { path: 'proof/:action', component: ProofPageComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'feed', component: FeedPageComponent }
+  { path: 'login', component: LoginPageComponent },
+  { path: 'adduser', component: AddUserPageComponent },
 ];
 
 @NgModule({

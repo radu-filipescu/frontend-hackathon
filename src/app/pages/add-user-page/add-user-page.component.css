@@ -1,0 +1,60 @@
+.users {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.users h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.users form {
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.users form .form-group {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.users form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.users form .form-group input[type="text"],
+.users form .form-group input[type="email"],
+.users form .form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.users form .form-group input[type="text"]:focus,
+.users form .form-group input[type="email"]:focus,
+.users form .form-group input[type="password"]:focus {
+  outline: none;
+  border-color: #4d90fe;
+  -webkit-box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
+          box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
+}
+
+.users form a {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  font-size: 18px;
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=add-user-page.component.css.map */

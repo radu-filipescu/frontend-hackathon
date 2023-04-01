@@ -24,7 +24,7 @@
             line-height: 1.2;
     
             &.selected {
-            background-color: #cce6ff;
+            background-color: #a6c0aa;
             }
     
             
@@ -33,7 +33,43 @@
 
     }
 
-    .button{
-        
+    a {
+      font-size: 20px;
+      background-color: var(--brown);
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 5px;
+      color: white;
+      display: block;
+      width: fit-content;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
+    a:hover, a:active{
+      background-color: #734b36;
+    }
+
+    .score1{
+      background-color: var(--green);
+      text-decoration: none;
+      padding: 5px;
+      margin-top: 10px;
+      border-radius: 5px;
+      color: white;
+      display: block;
+      width: fit-content;
+      font-size: 30px;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
+    .score2{
+      background-color: var(--green);
+      text-decoration: none;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      color: black;
+      display: block;
+      width: fit-content;
+      font-size: 50px;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     }
 }  

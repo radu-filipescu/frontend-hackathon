@@ -61,6 +61,7 @@ export class QuizPageComponent implements OnInit {
   lastQuestion: boolean = false;
   score: number = 0;
   totalQuestions: number = this.questions.length;
+  selected: boolean = false;
 
   constructor() { }
 
@@ -69,9 +70,11 @@ export class QuizPageComponent implements OnInit {
 
   selectChoice(choice: string): void {
     this.selectedChoice = choice;
+    this.selected = true;
   }
 
   nextQuestion(): void {
+    this.selected = false;
     if (this.selectedChoice === this.currentQuestion.answer) {
       this.score++;
     }

@@ -7,14 +7,15 @@
         {{ choice }}
       </div>
     </div>
-    <button class="submit-button" (click)="nextQuestion()">Next</button>
-    <div class="score" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
+    <a *ngIf="selected" class="next-button" (click)="nextQuestion()">Next</a>
+    <a *ngIf="!selected" class="next-button">Next</a>
+    <div class="score1" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
   </div>
 
 
     <div *ngIf="lastQuestion" class="quiz-container">
-        <div class="score" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
-        <button *ngIf="lastQuestion" class="submit-button" (click)="submitQuiz()">Submit</button>
+        <div class="score2" *ngIf="showScore">Your score: {{ score }}/{{ totalQuestions }}</div>
+        <a *ngIf="lastQuestion" class="submit-button" (click)="submitQuiz()">Submit</a>
     </div>
 
     
