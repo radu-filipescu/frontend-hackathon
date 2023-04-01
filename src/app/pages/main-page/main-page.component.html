@@ -1,7 +1,10 @@
 <div class="wrapper">
     <p>Make a change:</p>
 
-    <div class="action-button" (click)="showDescriptionPanel(0)">Green commuting</div>
+    <div class="action-button" (click)="showDescriptionPanel(0)">
+        <img src="assets/icons/green-commuting.png" width="70" height="70"/>
+        <span>Green commuting</span>
+    </div>
     <div class="action-description" *ngIf="showDescriptions[0]">
         You can earn 40 points by using public transport to get to work
         <a (click)="goToProof('ride-bus')">Show us proof!</a>
@@ -9,7 +12,11 @@
         <a (click)="goToProof('ride-bike')">Show us proof!</a>
     </div>
 
-    <div class="action-button" (click)="showDescriptionPanel(1)">Plastic free workplace</div>
+    <div class="action-button" (click)="showDescriptionPanel(1)">
+        <img src="assets/icons/plastic-free.png" width="70" height="70"/>
+        <span>Plastic free workplace</span>
+        
+    </div>
     <div class="action-description" *ngIf="showDescriptions[1]">
         You can earn 30 points by:
         <ul>
@@ -19,19 +26,28 @@
         <a (click)="goToProof('reusable-container')">Show us proof!</a>
     </div>
 
-    <div class="action-button" (click)="showDescriptionPanel(2)">Eco IQ</div>
+    <div class="action-button" (click)="showDescriptionPanel(2)">
+        <img src="assets/icons/eco-iq.png" width="70" height="70"/>
+        <span>Eco IQ</span> 
+    </div>
     <div class="action-description" *ngIf="showDescriptions[2]">
         Take a short quiz to test your green knowledge and earn 50 points!
         <a>Eco quiz</a>
     </div>
 
-    <div class="action-button" (click)="showDescriptionPanel(3)">Plant Master</div>
+    <div class="action-button" (click)="showDescriptionPanel(3)">
+        <img src="assets/icons/plant-master.png" width="70" height="70"/>
+        <span>Plant Master</span>
+    </div>
     <div class="action-description" *ngIf="showDescriptions[3]">
         Plant a flower or a tree to earn 100 points for your team!
         <a (click)="goToProof('plant-tree')">Show us proof!</a>
     </div>
 
-    <div class="action-button" (click)="showDescriptionPanel(4)">Second Life</div>
+    <div class="action-button" (click)="showDescriptionPanel(4)">
+        <img src="assets/icons/second-life.png" width="70" height="70"/>
+        <span>Second Life</span>
+    </div>
     <div class="action-description" *ngIf="showDescriptions[4]">
         Earn 500 points by donating your old equipment to be reused by others!
         <a (click)="goToProof('donating-equipment')">Show us proof!</a>
