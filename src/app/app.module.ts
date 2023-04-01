@@ -7,13 +7,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    MainPageComponent
+    MainPageComponent,
+    ProofPageComponent
   ],
   imports: [
     BrowserModule,
