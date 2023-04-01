@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'adduser', component: AddUserPageComponent },
+  { path: 'feed', component: FeedPageComponent },
 ];
 
 @NgModule({
