@@ -1,4 +1,4 @@
-export class userDTO {
+export class UserDTO {
   id: string = "";
   name: string = "";
   companyId: string = "";

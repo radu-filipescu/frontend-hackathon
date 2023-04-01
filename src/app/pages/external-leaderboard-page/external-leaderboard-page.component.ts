@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyDTO } from 'src/app/DTOs/CompanyDTO';
 
 @Component({
   selector: 'app-external-leaderboard-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./external-leaderboard-page.component.scss']
 })
 export class ExternalLeaderboardPageComponent implements OnInit {
+
+  companies: CompanyDTO[] = [];
 
   constructor() { }
 

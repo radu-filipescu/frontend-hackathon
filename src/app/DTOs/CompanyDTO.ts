@@ -1,4 +1,4 @@
-export class companyDTO {
+export class CompanyDTO {
   id: string = "";
   name: string = "";
   email: string = "";
