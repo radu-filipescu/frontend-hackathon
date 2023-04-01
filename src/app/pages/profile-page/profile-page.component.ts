@@ -12,6 +12,12 @@ export class ProfilePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.currentUser = new UserDTO();
+
+    this.currentUser.name = "Andrei Ionascu";
+    this.currentUser.email = "andrei@cercopitechs.com";
+    this.currentUser.score = 5000
+    this.currentUser.companyId = "santierul cucu";
   }
 
 }
