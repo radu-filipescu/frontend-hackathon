@@ -14,7 +14,7 @@ export class HistoryService {
   constructor(private http: HttpClient) { }
 
   async getMockData(){
-    let historyPosts = [];
+    /*let historyPosts = [];
     let historyPost1 = new HistoryDTO();
     historyPost1.date = "30.03.2023";
     historyPost1.actionId = "101";
@@ -43,7 +43,7 @@ export class HistoryService {
     historyPosts.push(historyPost2);
     historyPosts.push(historyPost3);
     historyPosts.push(historyPost4);
-    return historyPosts
+    return historyPosts*/
   }
 
   getFeed() {

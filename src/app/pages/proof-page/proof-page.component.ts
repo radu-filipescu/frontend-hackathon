@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 import * as handTrack from 'handtrackjs';
 import { HistoryDTO } from 'src/app/DTOs/historyDTO';
 import { ImageDTO } from 'src/app/DTOs/ImageDTO';
 import { UserDTO } from 'src/app/DTOs/UserDTO';
+import { Action } from 'src/app/shared/Action';
 import { CONFIG } from 'src/app/shared/CONFIG';
+
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-proof-page',
@@ -27,6 +30,11 @@ export class ProofPageComponent implements OnInit {
   canvas: any;
   context: any;
 
+  sendEnabled: boolean = false;
+  successMessageVisible: boolean = false;
+
+  utils: Action = new Action();
+
   randomGestures: string[] = ["an open palm", "a closed fist", "a finger pointing upwards"];
   chosenGesture: string = "";
 
@@ -36,7 +44,7 @@ export class ProofPageComponent implements OnInit {
 
   currentUser: UserDTO = new UserDTO();
 
-  constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient, private router: Router) { }
 
   defaultParams = {
     flipHorizontal: false,
@@ -78,27 +86,7 @@ export class ProofPageComponent implements OnInit {
               this.video.pause();
               this.screenShot = this.canvas.toDataURL();
 
-              // send action to backend
-              let currentAction: HistoryDTO = new HistoryDTO();
-              currentAction.date = new Date().toDateString();
-              currentAction.userId = this.currentUser.id;
-              currentAction.actionId = this.action;
-
-              this.httpClient.post(this.CONFIG.backendDevAPI + 'History', currentAction)
-                .subscribe(response => {
-                  let imagePath = String((response as any).value);
-
-                  let image = new ImageDTO();
-                  image.imageAsBase64 = this.screenShot;
-                  image.name = imagePath;
-
-                  this.httpClient.post(this.CONFIG.backendDevAPI + 'Image', image)
-                    .subscribe(result => {
-                      console.log(result);
-                    })
-                })
-
-
+              this.sendEnabled = true;
 
               clearInterval(checker);
             }
@@ -109,6 +97,42 @@ export class ProofPageComponent implements OnInit {
         })
     }, 400);
 
+  }
+
+  sendPhoto() {
+    if(!this.sendEnabled)
+      return;
+
+    // send action to backend
+    let currentAction: HistoryDTO = new HistoryDTO();
+
+    let format = 'yyyy-MM-ddTHH:mm:ss';
+    let myDate = new Date();
+    let locale = 'en-US';
+    let formattedDate = formatDate(myDate, format, locale);
+    currentAction.date = formattedDate;
+    currentAction.userId = parseInt(this.currentUser.id);
+    currentAction.actionId = this.utils.getNumberByName(this.action);
+
+    this.httpClient.post<HistoryDTO>(this.CONFIG.backendDevAPI + 'History', currentAction)
+      .subscribe(response => {
+        let imageId = response.id;
+
+        let image = new ImageDTO();
+        image.imageAsBase64 = this.screenShot;
+        image.imageName = imageId.toString();
+
+        this.httpClient.post(this.CONFIG.backendDevAPI + 'Image', image)
+          .subscribe(result => {
+            if(String((result as any).value) == "Image uploaded") {
+              this.successMessageVisible = true;
+              setTimeout( () => {
+                this.successMessageVisible = false;
+                this.router.navigate(['home']);
+              }, 3000);
+            }
+          })
+      });
   }
 
   getMyInformation() {
@@ -152,10 +176,6 @@ export class ProofPageComponent implements OnInit {
 
   refreshProofPage() {
     window.location.reload();
-  }
-
-  send() {
-
   }
 
 }

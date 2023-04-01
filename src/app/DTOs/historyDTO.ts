@@ -1,6 +1,7 @@
 export class HistoryDTO {
-  id: string = "";
-  userId: string = "";
+  id: number = 0;
+  userId: number = 0;
   date: string = "";
-  actionId: string = "";
+  actionId: number = 0;
+  photoPath: string = "";
 }
