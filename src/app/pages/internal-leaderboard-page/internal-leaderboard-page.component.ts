@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDTO } from 'src/app/DTOs/UserDTO';
+import { CompanyService } from 'src/app/service/company.service';
 
 @Component({
   selector: 'app-internal-leaderboard-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternalLeaderboardPageComponent implements OnInit {
 
-  constructor() { }
+  employees: UserDTO[] = [];
+
+  constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
+    this.companyService.getMockEmployees().then((result) => {
+      this.employees = result;
+
+      this.employees.sort((a, b) => b.score - a.score);
+    })
   }
 
 }

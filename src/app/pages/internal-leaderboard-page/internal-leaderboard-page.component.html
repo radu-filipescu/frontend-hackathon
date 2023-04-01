@@ -6,17 +6,9 @@
             <th>Score</th>
         </thead>
         <tbody>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
+            <tr *ngFor="let emp of employees">
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.score }}</td>
             </tr>
         </tbody>
     </table>
