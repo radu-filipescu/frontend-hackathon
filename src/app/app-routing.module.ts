@@ -4,8 +4,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 
 const routes: Routes = [
-  { path: 'awda', component: MainPageComponent },
-  { path: '', component: ProofPageComponent}
+  { path: '', component: MainPageComponent },
+  { path: 'proof/:action', component: ProofPageComponent}
 ];
 
 @NgModule({

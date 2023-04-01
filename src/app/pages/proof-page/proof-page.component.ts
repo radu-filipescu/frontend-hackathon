@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // @ts-ignore
 import * as handTrack from 'handtrackjs';
 
@@ -18,7 +19,9 @@ export class ProofPageComponent implements OnInit {
   randomGestures: string[] = ["an open palm", "a closed fist", "a finger pointing upwards"];
   chosenGesture: string = "";
 
-  constructor() { }
+  action: string = "";
+
+  constructor(private route: ActivatedRoute,) { }
 
   defaultParams = {
     flipHorizontal: false,
@@ -67,6 +70,10 @@ export class ProofPageComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.action = params['action'];
+    });
+
     this.chosenGesture = this.randomGestures[Math.floor(Math.random() * this.randomGestures.length)];
 
     this.model = await handTrack.load(this.defaultParams);
@@ -86,6 +93,10 @@ export class ProofPageComponent implements OnInit {
 
   refreshProofPage() {
     window.location.reload();
+  }
+
+  send() {
+
   }
 
 }

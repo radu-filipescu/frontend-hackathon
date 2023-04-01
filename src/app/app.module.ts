@@ -8,6 +8,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
+import { InternalLeaderboardPageComponent } from './pages/internal-leaderboard-page/internal-leaderboard-page.component';
+import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-page/external-leaderboard-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ProofPageComponent } from './pages/proof-page/proof-page.component';
     FooterComponent,
     HeaderComponent,
     MainPageComponent,
-    ProofPageComponent
+    ProofPageComponent,
+    InternalLeaderboardPageComponent,
+    ExternalLeaderboardPageComponent
   ],
   imports: [
     BrowserModule,
