@@ -13,6 +13,7 @@ export class ExternalLeaderboardPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

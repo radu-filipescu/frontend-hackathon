@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { userDTO } from 'src/app/DTOs/UserDTO';
+import { UserDTO } from 'src/app/DTOs/UserDTO';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,7 +7,7 @@ import { userDTO } from 'src/app/DTOs/UserDTO';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
-  currentUser: userDTO = new userDTO();
+  currentUser: UserDTO = new UserDTO();
 
   constructor() { }
 
