@@ -1,1 +1,41 @@
-<p>main-page works!</p>
+<div class="wrapper">
+    <p>Make a change:</p>
+
+    <div class="action-button" (click)="showDescriptionPanel(0)">Green commuting</div>
+    <div class="action-description" *ngIf="showDescriptions[0]">
+        You can earn 40 points by:
+        <ul>
+            <li>Using public transport to get to work</li>
+            <li>Using a bike / electric scooter to get to work</li>
+        </ul>
+        <a>Show us proof!</a>
+    </div>
+
+    <div class="action-button" (click)="showDescriptionPanel(1)">Plastic free workplace</div>
+    <div class="action-description" *ngIf="showDescriptions[1]">
+        You can earn 30 points by:
+        <ul>
+            <li>Bringing a reusable water bottle</li>
+            <li>Bringing food in a reusable container/avoiding single use cutlery</li>
+        </ul>
+        <a>Show us proof!</a>
+    </div>
+
+    <div class="action-button" (click)="showDescriptionPanel(2)">Eco IQ</div>
+    <div class="action-description" *ngIf="showDescriptions[2]">
+        Take a short quiz to test your green knowledge and earn 50 points!
+        <a>Eco quiz</a>
+    </div>
+
+    <div class="action-button" (click)="showDescriptionPanel(3)">Plant Master</div>
+    <div class="action-description" *ngIf="showDescriptions[3]">
+        Plant a flower or a tree to earn 100 points for your team!
+        <a>Show us proof!</a>
+    </div>
+
+    <div class="action-button" (click)="showDescriptionPanel(4)">Second Life</div>
+    <div class="action-description" *ngIf="showDescriptions[4]">
+        Earn 500 points by donating your old equipment to be reused by others!
+        <a>Show us proof!</a>
+    </div>
+</div>

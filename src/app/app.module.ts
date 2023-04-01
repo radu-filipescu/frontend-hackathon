@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 
+import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 
 import { FormsModule } from '@angular/forms';
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     MainPageComponent,
-    QuizPageComponent
+    QuizPageComponent,
+    ProofPageComponent
   ],
   imports: [
     BrowserModule,

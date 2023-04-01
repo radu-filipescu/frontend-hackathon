@@ -1,0 +1,39 @@
+p {
+    font-size: 1.5em;
+}
+
+.wrapper {
+    margin: 0px 5vw;
+}
+
+.action-button {
+    background-color: var(--blue);
+    margin: 1vh;
+    padding: 5vw;
+    font-size: 1.5em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.action-button:hover, .action-button:active {
+    background-color: #7a857b;
+}
+
+.action-description {
+    margin: 0px 5vw;
+}
+
+a {
+    background-color: var(--brown);
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+a:hover, a:active{
+    background-color: #734b36;
+}

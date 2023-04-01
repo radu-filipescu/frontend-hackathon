@@ -1,0 +1,9 @@
+<div class="proof-header">Please take a photo with <br> <b>{{chosenGesture}}</b>.</div>
+
+<video (loadeddata)="startPredicting()" style="height: 1px; width: 1px" id="videoid"></video>
+
+<canvas id="canvasid"></canvas>
+
+<button class="send-button">Send</button>
+
+<button class="refresh-button" (click)="refreshProofPage()">Refresh</button>

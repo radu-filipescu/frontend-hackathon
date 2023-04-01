@@ -1,0 +1,28 @@
+.proof-header {
+  padding: 8px;
+  font-size: 25px;
+}
+
+.send-button {
+  position: absolute;
+  bottom: 10vh;
+  left: 20vw;
+  height: 5vh;
+  width: 25vw;
+  background-color: var(--green);
+  border-radius: 8px;
+  color: whitesmoke;
+  font-size: 21px;
+}
+
+.refresh-button {
+  position: absolute;
+  bottom: 10vh;
+  right: 20vw;
+  height: 5vh;
+  width: 25vw;
+  background-color: var(--green);
+  border-radius: 8px;
+  color: whitesmoke;
+  font-size: 21px;
+}
