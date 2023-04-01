@@ -1,0 +1,50 @@
+#user-img {
+  height: 30vw;
+  width: 30vw;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  display: inline;
+  float: left;
+}
+
+.user-name {
+  display: inline;
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-company {
+  display: inline;
+  float: left;
+  padding: 10px;
+  font-size: 21px;
+}
+
+.user-score {
+  display: inline;
+  float: left;
+  padding: 10px;
+  font-size: 26px;
+}
+
+.user-achievments {
+  position: absolute;
+  top: 60vw;
+  left: 10px;
+  font-size: 20px;
+}
+
+.badge-card {
+  position: absolute;
+  top: 68vw;
+  width: 90vw;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  height: 50vh;
+  left: 5vw;
+  border: 2px solid var(--brown);
+}
