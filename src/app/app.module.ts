@@ -7,22 +7,31 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
+
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
+import { InternalLeaderboardPageComponent } from './pages/internal-leaderboard-page/internal-leaderboard-page.component';
+import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-page/external-leaderboard-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
     MainPageComponent,
+    QuizPageComponent,
     ProofPageComponent,
+    InternalLeaderboardPageComponent,
+    ExternalLeaderboardPageComponent,
     ProfilePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
