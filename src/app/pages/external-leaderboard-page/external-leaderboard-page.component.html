@@ -2,21 +2,13 @@
     <h2>Leaderboard</h2>
     <table>
         <thead>
-            <th>Corporation</th>
+            <th>Company</th>
             <th>Score</th>
         </thead>
         <tbody>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
-            </tr>
-            <tr>
-                <td>Nume</td>
-                <td>200</td>
+            <tr *ngFor="let company of companies">
+                <td>{{ company.name }}</td>
+                <td>{{ company.score }}</td>
             </tr>
         </tbody>
     </table>
