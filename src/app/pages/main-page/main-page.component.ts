@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  showDescriptions: boolean[] = [false, false, false, false, false]; 
+  showDescriptions: boolean[] = [false, false, false, false, false];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,8 +22,12 @@ export class MainPageComponent implements OnInit {
       for(let i=0; i < this.showDescriptions.length; i++){
         this.showDescriptions[i] = false;
       }
-  
+
       this.showDescriptions[index] = true;
     }
+  }
+
+  goToProof(actionName: string) {
+    this.router.navigate(['proof','actionName']);
   }
 }

@@ -18,7 +18,7 @@
             <li>Bringing a reusable water bottle</li>
             <li>Bringing food in a reusable container/avoiding single use cutlery</li>
         </ul>
-        <a>Show us proof!</a>
+        <a (click)="goToProof('reusable-container')">Show us proof!</a>
     </div>
 
     <div class="action-button" (click)="showDescriptionPanel(2)">Eco IQ</div>
@@ -30,12 +30,12 @@
     <div class="action-button" (click)="showDescriptionPanel(3)">Plant Master</div>
     <div class="action-description" *ngIf="showDescriptions[3]">
         Plant a flower or a tree to earn 100 points for your team!
-        <a>Show us proof!</a>
+        <a (click)="goToProof('plant-tree')">Show us proof!</a>
     </div>
 
     <div class="action-button" (click)="showDescriptionPanel(4)">Second Life</div>
     <div class="action-description" *ngIf="showDescriptions[4]">
         Earn 500 points by donating your old equipment to be reused by others!
-        <a>Show us proof!</a>
+        <a (click)="goToProof('donating-equipment')">Show us proof!</a>
     </div>
 </div>
