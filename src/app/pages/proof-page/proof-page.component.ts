@@ -12,6 +12,12 @@ export class ProofPageComponent implements OnInit {
   video: any;
   model: any;
 
+  canvas: any;
+  context: any;
+
+  randomGestures: string[] = ["an open palm", "a closed fist", "a finger pointing upwards"];
+  chosenGesture: string = "";
+
   constructor() { }
 
   defaultParams = {
@@ -27,20 +33,59 @@ export class ProofPageComponent implements OnInit {
     fontSize: 17,
 };
 
+  checkPrediction(predictions: any) {
+    if(!predictions || predictions.length == 0)
+      return false;
+
+    for(let i = 0; i < predictions.length; i++) {
+      if(predictions[0].label == 'open' && this.chosenGesture == "an open palm" ||
+      predictions[0].label == 'closed' && this.chosenGesture == "a closed fist" ||
+      predictions[0].label == 'point' && this.chosenGesture == "a finger pointing upwards")
+        return true;
+    }
+
+    return false;
+  }
+
   startPredicting() {
     setInterval( () => {
       this.model.detect(this.video)
         .then((predictions: any) => {
-          console.log(predictions);
+          //console.log(predictions);
+
+          if(predictions != undefined)
+            if(this.checkPrediction(predictions)) {
+              this.video.pause();
+            }
+
+
+          let ctx = this.canvas.getContext("2d");
+          this.model.renderPredictions(predictions, this.canvas, this.context, this.video);
         })
-    }, 100);
+    }, 200);
 
   }
 
   async ngOnInit() {
+    this.chosenGesture = this.randomGestures[Math.floor(Math.random() * this.randomGestures.length)];
+
     this.model = await handTrack.load(this.defaultParams);
     this.video = document.getElementById('videoid');
+    this.canvas = document.getElementById('canvasid');
+    this.context = this.canvas.getContext("2d");
+
+    // get phone size
+    let phoneHeight = window.innerHeight;
+    let phoneWidth = window.innerWidth;
+
+    this.context.canvas.height = phoneHeight;
+    this.context.canvas.width = phoneWidth * 0.8;
+
     handTrack.startVideo(this.video);
+  }
+
+  refreshProofPage() {
+    window.location.reload();
   }
 
 }
