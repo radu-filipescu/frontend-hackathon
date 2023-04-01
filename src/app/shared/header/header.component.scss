@@ -1,5 +1,8 @@
-div {
-    height: 7vh;
+h1 {
     background-color: var(--green);
     border-bottom: 2px solid var(--dark-green);
+    margin: 0;
+    padding: 1vh 0vh;
+    position: static;
+    font-size: 3em;
 }
