@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 import * as handTrack from 'handtrackjs';
 
@@ -9,6 +10,10 @@ import * as handTrack from 'handtrackjs';
   styleUrls: ['./proof-page.component.scss']
 })
 export class ProofPageComponent implements OnInit {
+
+  faSpinner = faSpinner;
+
+  webcamIsLoading: boolean = true;
 
   video: any;
   model: any;
@@ -41,9 +46,9 @@ export class ProofPageComponent implements OnInit {
       return false;
 
     for(let i = 0; i < predictions.length; i++) {
-      if(predictions[0].label == 'open' && this.chosenGesture == "an open palm" ||
-      predictions[0].label == 'closed' && this.chosenGesture == "a closed fist" ||
-      predictions[0].label == 'point' && this.chosenGesture == "a finger pointing upwards")
+      if(predictions[i].label == 'open' && this.chosenGesture == "an open palm" ||
+      predictions[i].label == 'closed' && this.chosenGesture == "a closed fist" ||
+      predictions[i].label == 'point' && this.chosenGesture == "a finger pointing upwards")
         return true;
     }
 
@@ -51,21 +56,24 @@ export class ProofPageComponent implements OnInit {
   }
 
   startPredicting() {
-    setInterval( () => {
+    this.webcamIsLoading = false;
+
+    let checker = setInterval( () => {
       this.model.detect(this.video)
         .then((predictions: any) => {
-          //console.log(predictions);
+          //console.log('interval');
 
           if(predictions != undefined)
             if(this.checkPrediction(predictions)) {
               this.video.pause();
+              clearInterval(checker);
             }
 
 
           let ctx = this.canvas.getContext("2d");
           this.model.renderPredictions(predictions, this.canvas, this.context, this.video);
         })
-    }, 200);
+    }, 400);
 
   }
 
@@ -85,9 +93,6 @@ export class ProofPageComponent implements OnInit {
     // get phone size
     let phoneHeight = window.innerHeight;
     let phoneWidth = window.innerWidth;
-
-    this.context.canvas.height = phoneHeight;
-    this.context.canvas.width = phoneWidth * 0.8;
 
     handTrack.startVideo(this.video);
   }
