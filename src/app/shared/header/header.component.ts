@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
 
     this.httpClient.post(this.CONFIG.backendDevAPI + 'Login', logoutTMP)
       .subscribe(response => {
-        console.log(response);
         this.router.navigate(['login']);
       })
 
