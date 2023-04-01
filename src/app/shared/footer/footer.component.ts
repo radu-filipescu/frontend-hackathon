@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faUser, faPlusCircle, faClock, faMedal, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,9 +14,16 @@ export class FooterComponent implements OnInit {
   faTrophy = faTrophy;
   faPlusCircle = faPlusCircle;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  navigateLandingPage() {
+    this.router.navigate(['']);
+  }
+
+  navigateProfilePage() {
+    this.router.navigate(['profile']);
+  }
 }

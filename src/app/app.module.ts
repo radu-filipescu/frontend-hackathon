@@ -12,6 +12,7 @@ import { QuizPageComponent } from './pages/quiz-page/quiz-page.component';
 import { ProofPageComponent } from './pages/proof-page/proof-page.component';
 import { InternalLeaderboardPageComponent } from './pages/internal-leaderboard-page/internal-leaderboard-page.component';
 import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-page/external-leaderboard-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 import { FormsModule } from '@angular/forms';
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     QuizPageComponent,
     ProofPageComponent,
     InternalLeaderboardPageComponent,
-    ExternalLeaderboardPageComponent
+    ExternalLeaderboardPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
