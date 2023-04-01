@@ -20,4 +20,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  logOut() {
+    this.router.navigate(['login']);
+  }
 }

@@ -70,9 +70,10 @@ export class ProofPageComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.action = params['action'];
-    });
+    let param = this.route.snapshot.paramMap.get('action');
+    if(param){
+      this.action = param;
+    }
 
     this.chosenGesture = this.randomGestures[Math.floor(Math.random() * this.randomGestures.length)];
 
