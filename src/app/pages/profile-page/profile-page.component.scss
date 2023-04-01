@@ -1,8 +1,10 @@
+
 #user-img {
+  border-radius: 50%;
   height: 30vw;
   width: 30vw;
-  margin-top: 5px;
-  margin-left: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
   border-radius: 5px;
   display: inline;
   float: left;
@@ -11,7 +13,7 @@
 .user-name {
   display: inline;
   float: left;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-left: 10px;
   font-size: 24px;
   font-weight: bold;
