@@ -18,11 +18,10 @@ export class ProfilePageComponent implements OnInit {
   mockAchivements: { url: string, tooltip: string, title: string}[] = []
 
   getMyInformation() {
-    this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
-      .subscribe(result => {
-        let loginResult = String((result as any).value);
 
-        if(loginResult != "not logged in") {
+        let loginResult = localStorage.getItem("loginStatus");
+
+        if(loginResult && loginResult != "not logged in") {
           let userId: string = loginResult.split(' ')[2];
 
           this.httpClient.get(this.CONFIG.backendDevAPI + 'Users/' + userId)
@@ -38,7 +37,6 @@ export class ProfilePageComponent implements OnInit {
             });
 
         }
-      });
   }
 
   initializeMockAchivments() {
