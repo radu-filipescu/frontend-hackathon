@@ -1,4 +1,4 @@
 export class ImageDTO {
-  name: string = "";
+  imageName: string = "";
   imageAsBase64: string = "";
 }

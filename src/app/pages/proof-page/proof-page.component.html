@@ -4,8 +4,10 @@
 
 <canvas id="canvasid" width="50" height="50"></canvas>
 
-<button class="send-button" (click)="send()">Send</button>
+<button class="send-button" [disabled]="!sendEnabled" (click)="sendPhoto()">Send</button>
 
 <button class="refresh-button" (click)="refreshProofPage()">Refresh</button>
 
 <img *ngIf="webcamIsLoading" class="loading-spinner" src="../../../assets/images/loading-spinner.gif">
+
+<div class="success-message" *ngIf="successMessageVisible">Action sent<br> successfully!</div>

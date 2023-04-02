@@ -35,3 +35,26 @@
   height: 20vw;
   
 }
+
+button[disabled] {
+  background-color: gray;
+}
+
+button[disabled]:hover {
+  box-shadow: none;
+}
+
+.success-message {
+  position: absolute;
+  width: 60vw;
+  height: 10vh;
+  left: 20vw;
+  top: 16vh;
+  border-radius: 10px;
+  background-color: #3eb853;
+  line-height: 5vh;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  border: 2px solid var(--dark-green);
+}
