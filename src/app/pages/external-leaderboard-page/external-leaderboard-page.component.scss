@@ -2,16 +2,18 @@
     h2{
         text-align: center;
     }
-    margin: 5vw;
+    margin-top: calc(3.5em + 3.4vh);
 }
 
 
 table {
+    margin-left: auto;
+    margin-right: auto;
     font-size: 18px;
     font-weight: 600;
     border-radius: 10px;
     overflow: hidden;
-    width: 100%;
+    width: 93%;
     border: 0px;
     border-collapse: collapse;
 
