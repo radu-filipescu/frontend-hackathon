@@ -2,7 +2,7 @@
     <h2>Your company's story:</h2>
     <div class="post" *ngFor="let post of posts">
         <p class="title" [ngClass]="{'streak-post': getMockStreak(post.actionId) != ''}">
-            <fa-icon [icon]="faLeaf" *ngIf="getMockStreak(post.actionId) != ''"></fa-icon>
+            <fa-icon style="margin-right:10px" [icon]="faLeaf" *ngIf="getMockStreak(post.actionId) != ''"></fa-icon>
             {{usersMap.get(post.userId)!.name}} {{ actionTranslator.formatAction(post.actionId) }}{{getMockStreak(post.actionId)}}!
         </p>
         <img [src]="photoMap.get(post.photoPath)" class="post-photo"/>
