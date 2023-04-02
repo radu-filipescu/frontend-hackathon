@@ -30,6 +30,13 @@ export class FeedPageComponent implements OnInit {
     this.refreshFeed();
   }
 
+  getMockStreak(actionId: number): string{
+    if(actionId == 4) return ' for 2 days in a row';
+    if(actionId == 2) return ' for 5 days in a row';
+    
+    return '';
+  }
+
   private refreshFeed(){
 
     this.httpClient.get<UserDTO[]>(this.CONFIG.backendDevAPI + 'Users')
