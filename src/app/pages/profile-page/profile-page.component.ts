@@ -15,7 +15,7 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  mockAchivements: { url: string, tooltip: string}[] = []
+  mockAchivements: { url: string, tooltip: string, title: string}[] = []
 
   getMyInformation() {
     this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
@@ -42,9 +42,10 @@ export class ProfilePageComponent implements OnInit {
   }
 
   initializeMockAchivments() {
-    this.mockAchivements.push({url: "../../../assets/images/blue-medal.jpg", tooltip: "Blue hero - use a non-plastic bottle more than 10 times"});
-    this.mockAchivements.push({url: "../../../assets/images/gold-medal.png", tooltip: "Golden - be top one in your company once"});
-    this.mockAchivements.push({url: "../../../assets/images/green-medal.webp", tooltip: "Gardner - plant a tree"});
+    this.mockAchivements.push({url: "../../../assets/images/bottle.png", tooltip: "Blue hero - use a non-plastic bottle more than 10 times", title:"Blue hero"});
+    this.mockAchivements.push({url: "../../../assets/images/badge1.png", tooltip: "Golden - be top one in your company once", title: "Golden employee"});
+    this.mockAchivements.push({url: "../../../assets/images/badge.png", tooltip: "Gardner - plant a tree", title:"Gardner"});
+    this.mockAchivements.push({url: "../../../assets/images/award.png", tooltip: "Quiz master - take a quiz and get max score", title:"Quiz master"});
   }
 
   ngOnInit(): void {
