@@ -9,6 +9,7 @@ import { ExternalLeaderboardPageComponent } from './pages/external-leaderboard-p
 import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AddUserPageComponent } from './pages/add-user-page/add-user-page.component';
+import { AdminMainPageComponent } from './pages/admin-main-page/admin-main-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'adduser', component: AddUserPageComponent },
   { path: 'feed', component: FeedPageComponent },
+  { path: 'adminhome', component: AdminMainPageComponent },
 ];
 
 @NgModule({

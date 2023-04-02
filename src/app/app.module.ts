@@ -22,6 +22,8 @@ import { FeedPageComponent } from './pages/feed-page/feed-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { AdminMainPageComponent } from './pages/admin-main-page/admin-main-page.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ProfilePageComponent,
     FeedPageComponent,
     LoginPageComponent,
-    AddUserPageComponent
+    AddUserPageComponent,
+    AdminMainPageComponent,
+
   ],
   imports: [
     BrowserModule,

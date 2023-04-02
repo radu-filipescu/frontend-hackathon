@@ -1,5 +1,8 @@
-
+.user-picture{
+  border-radius: 50%;
+}
 #user-img {
+  overflow: hidden;
   border-radius: 50%;
   height: 30vw;
   width: 30vw;
@@ -27,6 +30,9 @@
 }
 
 .user-score {
+  b{
+    color: var(--green);
+  }
   display: inline;
   float: left;
   padding: 10px;
@@ -34,9 +40,14 @@
 }
 
 .user-achievments {
+
   position: absolute;
   top: 60vw;
-  left: 10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
   font-size: 20px;
 }
 
