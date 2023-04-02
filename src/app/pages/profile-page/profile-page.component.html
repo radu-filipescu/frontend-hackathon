@@ -1,27 +1,30 @@
-<div class="user-picture">
-  <img id="user-img" src="../../../assets/images/profile-placeholder.png">
-</div>
+<div class="wrapper">
 
-<div class="user-name">
-  {{currentUser.name}}
-</div>
+  <div class="user-picture">
+    <img id="user-img" src="../../../assets/images/profile-placeholder.png">
+  </div>
 
-<div class="user-company">
-  {{currentUser.companyId}}
-</div>
+  <div class="user-name">
+    {{currentUser.name}}
+  </div>
+
+  <div class="user-company">
+    {{currentUser.companyId}}
+  </div>
 
 
-<div class="user-score">
-  My score: <b>{{currentUser.score}}</b>
-</div>
+  <div class="user-score">
+    My score: <b>{{currentUser.score}}</b>
+  </div>
 
-<div class="user-achievments">
-  My achievements:
-</div>
+  <div class="user-achievments">
+    My achievements:
+  </div>
 
-<div class="badge-card">
+  <div class="badge-card">
 
-  <div *ngFor="let ach of mockAchivements; let i = index">
-    <img (click)="tooltip.toggle()" class="achievements-icon" #tooltip="matTooltip" [matTooltip]="mockAchivements[i].tooltip" src="{{mockAchivements[i].url}}">
+    <div *ngFor="let ach of mockAchivements; let i = index">
+      <img (click)="tooltip.toggle()" class="achievements-icon" #tooltip="matTooltip" [matTooltip]="mockAchivements[i].tooltip" src="{{mockAchivements[i].url}}">
+    </div>
   </div>
 </div>
