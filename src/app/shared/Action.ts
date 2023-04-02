@@ -36,12 +36,12 @@ export class Action {
     }
 
     formatAction(id: any){
-        if(id == 1) return "took the bus.";
-        if(id == 2) return "took the bike.";
-        if(id == 3) return "is plastic free.";
-        if(id == 4) return "took the eco quiz.";
-        if(id == 5) return "is a plant master.";
-        if(id == 6) return "donated some electronics."; 
+        if(id == 1) return "took the bus";
+        if(id == 2) return "took the bike";
+        if(id == 3) return "is plastic free";
+        if(id == 4) return "took the eco quiz";
+        if(id == 5) return "is a plant master";
+        if(id == 6) return "donated some electronics"; 
         return "";
     }
 }
