@@ -7,6 +7,7 @@ import { HistoryService } from 'src/app/service/history.service';
 import { CONFIG } from 'src/app/shared/CONFIG';
 import { Action } from 'src/app/shared/Action';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-feed-page',
@@ -14,6 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./feed-page.component.scss']
 })
 export class FeedPageComponent implements OnInit {
+  faLeaf = faLeaf;
   CONFIG: CONFIG = new CONFIG();
   posts: HistoryDTO[] = [];
   usersMap: Map<number, UserDTO> = new Map<number, UserDTO>();
@@ -32,7 +34,7 @@ export class FeedPageComponent implements OnInit {
 
   getMockStreak(actionId: number): string{
     if(actionId == 4) return ' for 2 days in a row';
-    if(actionId == 2) return ' for 5 days in a row';
+    if(actionId == 1) return ' for 5 days in a row';
     
     return '';
   }
