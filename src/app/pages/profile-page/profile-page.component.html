@@ -23,8 +23,9 @@
 
   <div class="badge-card">
 
-    <div *ngFor="let ach of mockAchivements; let i = index">
+    <div class="item" *ngFor="let ach of mockAchivements; let i = index">
       <img (click)="tooltip.toggle()" class="achievements-icon" #tooltip="matTooltip" [matTooltip]="mockAchivements[i].tooltip" src="{{mockAchivements[i].url}}">
+      <span class="caption">{{mockAchivements[i].title}}</span>
     </div>
   </div>
 </div>

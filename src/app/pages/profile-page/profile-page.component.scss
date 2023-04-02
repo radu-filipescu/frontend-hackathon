@@ -1,5 +1,6 @@
 .wrapper{
   margin-top: calc(3.5em + 1.7vh);
+  display:grid
 }
 .user-picture{
   border-radius: 50%;
@@ -43,34 +44,44 @@
 }
 
 .user-achievments {
-
-  position: absolute;
-  top: 60vw;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 170px;
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
   font-size: 20px;
+  font-weight: 600;
 }
 
 .badge-card {
-  position: absolute;
-  top: 68vw;
-  width: 90vw;
-  background-color: whitesmoke;
+  margin-top: 20vf;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
   border-radius: 15px;
   height: 50vh;
-  left: 5vw;
-  border: 2px solid var(--brown);
+  
+}
+
+.item{
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
 }
 
 .achievements-icon {
-  height: 80px;
-  width: 80px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 15px;
+  height: 110px;
+  width: 110px;
   display: inline;
   float: left;
   margin: 5px;
-  border: 1px solid var(--green);
-  border-radius: 14px;
+}
+
+.caption {
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  
 }
