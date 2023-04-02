@@ -44,10 +44,16 @@ export class FeedPageComponent implements OnInit {
         let loginResult = String((result as any).value);
 
         if(loginResult != "not logged in") {
+          console.log(loginResult)
           let userId: string = loginResult.split(' ')[2];
-          this.connectedUser = this.usersMap.get(parseInt(userId))!;
-
-              this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'History/GetHistoryByCompanyId/' + this.connectedUser.companyId )
+          let companyId;
+          if(loginResult.split(' ')[0] === 'normal'){
+            this.connectedUser = this.usersMap.get(parseInt(userId))!;
+            companyId = this.connectedUser.companyId;
+          } else {
+            companyId = userId;
+          }
+              this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'History/GetHistoryByCompanyId/' + companyId )
               .subscribe(posts => {
                 for(let post of posts){
                   this.posts.push(post);

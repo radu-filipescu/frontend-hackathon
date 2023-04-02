@@ -37,9 +37,11 @@ export class LoginPageComponent implements OnInit {
       .subscribe(result => {
         if(String((result as any).value).startsWith('normal user'))
           this.router.navigate(['home']);
+        if(String((result as any).value).startsWith('company admin'))
+          this.router.navigate(['adminhome']);
 
-          if((result as any).value == 'not logged in')
-            window.alert('wrong credentials!');
+        if((result as any).value == 'not logged in')
+          window.alert('wrong credentials!');
       })
   }
 }
