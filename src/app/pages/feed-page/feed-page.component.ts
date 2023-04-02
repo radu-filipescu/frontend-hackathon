@@ -39,34 +39,31 @@ export class FeedPageComponent implements OnInit {
           this.usersMap.set(user.id, user);
         }
 
-        this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'Login')
-      .subscribe(result => {
-        let loginResult = String((result as any).value);
-
-        if(loginResult != "not logged in") {
-          console.log(loginResult)
-          let userId: string = loginResult.split(' ')[2];
-          let companyId;
-          if(loginResult.split(' ')[0] === 'normal'){
-            this.connectedUser = this.usersMap.get(parseInt(userId))!;
-            companyId = this.connectedUser.companyId;
-          } else {
-            companyId = userId;
-          }
-              this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'History/GetHistoryByCompanyId/' + companyId )
-              .subscribe(posts => {
-                for(let post of posts){
-                  this.posts.push(post);
-      
-                  this.httpClient.get<ImageDTO>(this.CONFIG.backendDevAPI + 'Image/' + post.photoPath)
-                    .subscribe(image => {
-                        this.photoMap.set(image.imageName, this._sanitizer.bypassSecurityTrustResourceUrl(image.imageAsBase64));
-                    })
-                }
-              })
+        let loginResult = localStorage.getItem("loginStatus");
+        if(loginResult){
+          if(loginResult != "not logged in") {
+            console.log(loginResult)
+            let userId: string = loginResult.split(' ')[2];
+            let companyId;
+            if(loginResult.split(' ')[0] === 'normal'){
+              this.connectedUser = this.usersMap.get(parseInt(userId))!;
+              companyId = this.connectedUser.companyId;
+            } else {
+              companyId = userId;
             }
-            });
-
-      });
-    }
+                this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'History/GetHistoryByCompanyId/' + companyId )
+                .subscribe(posts => {
+                  for(let post of posts){
+                    this.posts.push(post);
+        
+                    this.httpClient.get<ImageDTO>(this.CONFIG.backendDevAPI + 'Image/' + post.photoPath)
+                      .subscribe(image => {
+                          this.photoMap.set(image.imageName, this._sanitizer.bypassSecurityTrustResourceUrl(image.imageAsBase64));
+                      })
+                  }
+                })
+              }
+        }
+    })
+  }
 }

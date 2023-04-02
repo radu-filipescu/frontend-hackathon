@@ -136,11 +136,9 @@ export class ProofPageComponent implements OnInit {
   }
 
   getMyInformation() {
-    this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
-      .subscribe(result => {
-        let loginResult = String((result as any).value);
+        let loginResult = localStorage.getItem("loginStatus");
 
-        if(loginResult != "not logged in") {
+        if(loginResult && loginResult != "not logged in") {
           let userId: string = loginResult.split(' ')[2];
 
           this.httpClient.get(this.CONFIG.backendDevAPI + 'Users/' + userId)
@@ -149,7 +147,7 @@ export class ProofPageComponent implements OnInit {
             });
 
         }
-      });
+
   }
 
   async ngOnInit() {

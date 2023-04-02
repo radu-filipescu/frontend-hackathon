@@ -33,8 +33,11 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit() {
     // Handle form submission
-    this.httpClient.post(this.CONFIG.backendDevAPI + 'Login', this.loginInfo)
+    this.httpClient.post<string>(this.CONFIG.backendDevAPI + 'Login', this.loginInfo)
       .subscribe(result => {
+
+        localStorage.setItem("loginStatus", String((result as any).value));
+
         if(String((result as any).value).startsWith('normal user'))
           this.router.navigate(['home']);
         if(String((result as any).value).startsWith('company admin'))
