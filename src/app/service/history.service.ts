@@ -3,6 +3,7 @@ import { HistoryDTO } from '../DTOs/historyDTO';
 import { HttpClient } from '@angular/common/http';
 import { CONFIG } from '../shared/CONFIG'
 import { Observable } from 'rxjs';
+import { UserDTO } from '../DTOs/UserDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,22 @@ export class HistoryService {
   }
 
   getFeed() {
-    return this.http.get(this.config.backendDevAPI + 'History') as  Observable<HistoryDTO[]>;
+
+    this.http.get<HistoryDTO[]>(this.config.backendDevAPI + 'Login')
+      .subscribe(result => {
+        let loginResult = String((result as any).value);
+
+        if(loginResult != "not logged in") {
+          let userId: string = loginResult.split(' ')[2];
+
+          this.http.get(this.config.backendDevAPI + 'Users/' + userId)
+            .subscribe(user => {
+              let currentUser = (user as UserDTO);
+
+              return this.http.get(this.config.backendDevAPI + 'History/GetHistoryByCompanyId/' + currentUser.companyId );
+            });
+
+        }
+      });
   }
 }
