@@ -1,4 +1,5 @@
 .login-container {
+    margin-top: calc(3.5em + 3.4vh);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,9 +56,10 @@
     }
   
     @media screen and (min-width: 768px) {
+      
       max-width: 600px;
       margin: auto;
-  
+      margin-top: calc(3.5em + 3.4vh);
       h2 {
         font-size: 48px;
         margin-bottom: 30px;
