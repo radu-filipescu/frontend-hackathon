@@ -21,14 +21,14 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpClient.get(this.CONFIG.backendDevAPI + 'Login')
-      .subscribe(result => {
-        //console.log('test');
-        //console.log(result);
+    let loginResult = localStorage.getItem("loginStatus");
 
-        if((result as any).value != 'not logged in')
-          this.router.navigate(['home']);
-      });
+    if(loginResult && String(loginResult as any).startsWith('normal')){
+      this.router.navigate(['home']);
+    } 
+    else if(loginResult && String(loginResult as any).startsWith('company')){
+      this.router.navigate(['adminhome']);
+    }
   }
 
   onSubmit() {

@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
     this.httpClient.post(this.CONFIG.backendDevAPI + 'Login', logoutTMP)
       .subscribe(response => {
         this.router.navigate(['login']);
+        localStorage.setItem("loginStatus", 'not logged in');
       })
 
 
