@@ -34,4 +34,5 @@ export class AdminMainPageComponent implements OnInit {
     this.router.navigate(['proof', actionName]);
   }
 
+
 }

@@ -13,9 +13,14 @@ export class FooterComponent implements OnInit {
   faUser = faUser;
   faTrophy = faTrophy;
   faPlusCircle = faPlusCircle;
+  visible : boolean = true;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    let loginResult = localStorage.getItem("loginStatus");
+    if(loginResult && String(loginResult as any).startsWith('company')){
+      this.visible = false;
+    }
   }
 }

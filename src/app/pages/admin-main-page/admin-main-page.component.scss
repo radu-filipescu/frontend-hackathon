@@ -4,11 +4,18 @@ p {
 }
 
 .wrapper {
-    font-size: large;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    
     margin-top: calc(3.5em + 3.4vh);
+
+    
 }
 
 .action-button {
+    font-size: large;
     position: relative;
     background-color: var(--blue);
     margin: 1vh;
@@ -51,4 +58,10 @@ a {
 }
 a:hover, a:active{
     background-color: #734b36;
+}
+
+#adduser{
+    margin-top: 1em;
+    padding: 0.5em;
+    font-size: 2.5em;
 }
