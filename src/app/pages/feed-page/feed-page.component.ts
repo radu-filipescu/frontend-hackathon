@@ -16,9 +16,10 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class FeedPageComponent implements OnInit {
   CONFIG: CONFIG = new CONFIG();
   posts: HistoryDTO[] = [];
-  usersMap: Map<number, string> = new Map<number, string>();
+  usersMap: Map<number, UserDTO> = new Map<number, UserDTO>();
   photoMap: Map<string, SafeResourceUrl> = new Map<string, string>();
   actionTranslator: Action = new Action();
+  connectedUser: UserDTO = new UserDTO;
 
   constructor(
     private historyService : HistoryService, 
@@ -35,22 +36,31 @@ export class FeedPageComponent implements OnInit {
       .subscribe(users => {
 
         for(let user of users){
-          this.usersMap.set(user.id, user.name);
+          this.usersMap.set(user.id, user);
         }
 
-        this.historyService.getFeed()
-        .subscribe(res => {
-          for(let post of res){
-            this.posts.push(post);
+        this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'Login')
+      .subscribe(result => {
+        let loginResult = String((result as any).value);
 
-            this.httpClient.get<ImageDTO>(this.CONFIG.backendDevAPI + 'Image/' + post.photoPath)
-              .subscribe(image => {
-                  this.photoMap.set(image.imageName, this._sanitizer.bypassSecurityTrustResourceUrl(image.imageAsBase64));
+        if(loginResult != "not logged in") {
+          let userId: string = loginResult.split(' ')[2];
+          this.connectedUser = this.usersMap.get(parseInt(userId))!;
+
+              this.httpClient.get<HistoryDTO[]>(this.CONFIG.backendDevAPI + 'History/GetHistoryByCompanyId/' + this.connectedUser.companyId )
+              .subscribe(posts => {
+                for(let post of posts){
+                  this.posts.push(post);
+      
+                  this.httpClient.get<ImageDTO>(this.CONFIG.backendDevAPI + 'Image/' + post.photoPath)
+                    .subscribe(image => {
+                        this.photoMap.set(image.imageName, this._sanitizer.bypassSecurityTrustResourceUrl(image.imageAsBase64));
+                    })
+                }
               })
-          }
-        }
-      )
-      })
-  }
+            }
+            });
 
+      });
+    }
 }
