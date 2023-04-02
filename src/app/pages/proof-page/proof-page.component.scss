@@ -1,3 +1,16 @@
+.wrapper{
+  margin-top: calc(3.5em + 1.7vh);
+}
+
+.proof-header{
+  
+}
+
+.streamer{
+  margin: auto;
+  width: min-content;
+}
+
 .proof-header {
   padding: 8px;
   font-size: 25px;
@@ -29,32 +42,14 @@
 
 .loading-spinner {
   position: absolute;
-  top: 20vh;
-  left: 20vw;
-  width: 20vw;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
   height: 20vw;
-  
-}
-
-button[disabled] {
-  background-color: gray;
-}
-
-button[disabled]:hover {
-  box-shadow: none;
-}
-
-.success-message {
-  position: absolute;
-  width: 60vw;
-  height: 10vh;
-  left: 20vw;
-  top: 16vh;
-  border-radius: 10px;
-  background-color: #3eb853;
-  line-height: 5vh;
-  font-weight: bold;
-  font-size: 22px;
-  text-align: center;
-  border: 2px solid var(--dark-green);
+  width: 20vw;
 }

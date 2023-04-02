@@ -1,13 +1,13 @@
-<div class="proof-header">Please take a photo with <br> <b>{{chosenGesture}}</b>.</div>
+<div class="wrapper">
+    <div class="proof-header">Please take a photo with <br> <b>{{chosenGesture}}</b>.</div>
 
-<video (loadeddata)="startPredicting()" style="height: 1px; width: 1px" id="videoid"></video>
+    <video (loadeddata)="startPredicting()" style="height: 1px; width: 1px" id="videoid"></video>
 
-<canvas id="canvasid" width="50" height="50"></canvas>
+    <div class="streamer"><canvas id="canvasid" width="50" height="50"></canvas></div>
 
-<button class="send-button" [disabled]="!sendEnabled" (click)="sendPhoto()">Send</button>
+    <button class="send-button" (click)="sendPhoto()">Send</button>
 
-<button class="refresh-button" (click)="refreshProofPage()">Refresh</button>
+    <button class="refresh-button" (click)="refreshProofPage()">Refresh</button>
 
-<img *ngIf="webcamIsLoading" class="loading-spinner" src="../../../assets/images/loading-spinner.gif">
-
-<div class="success-message" *ngIf="successMessageVisible">Action sent<br> successfully!</div>
+    <img *ngIf="webcamIsLoading" class="loading-spinner" src="../../../assets/images/loading-spinner.gif">
+</div>
